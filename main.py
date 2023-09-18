@@ -16,3 +16,6 @@ while guess_word:
         print("ne ugadali, sprobuyte we")
         if ugaday_slovo.find(rand_words):
             print(rand_words, r"ss")
+        else:
+            print("ne ugadali")
+            
