@@ -2,20 +2,19 @@ import random
 
 guess_word = ["adidas", "nike", "puma"]
 rand_words = random.choice(guess_word)
+
 kolicestvo_ugad = int(input("kolicestvo popitok?: "))
-print(kolicestvo_ugad,r" Popitok ugadat slovo")
-print("vopros: samie izvestnie mirovie brands")
 
+print(r"U vas", kolicestvo_ugad, "-Popitok ugadat slovo")
+print(r"Vopros: Izvestnie Mirovie Brandy na", len(rand_words), "bukv?")
 
-while guess_word:
-    ugaday_slovo = input("ugadayte bukvu ili slovo!: ")
+while rand_words:
+
+    ugaday_slovo = input("Ugadayte bukvu ili slovo!: ")
 
     if ugaday_slovo in rand_words:
-        print("vy ugadali")
+        print("Vy ugadali")
+        break
+
     else:
         print("ne ugadali, sprobuyte we")
-        if ugaday_slovo.find(rand_words):
-            print(rand_words, r"ss")
-        else:
-            print("ne ugadali")
-            
