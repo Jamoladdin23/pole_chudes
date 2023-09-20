@@ -1,20 +1,36 @@
 import random
-
-guess_word = ["adidas", "nike", "puma"]
-rand_words = random.choice(guess_word)
-
-kolicestvo_ugad = int(input("kolicestvo popitok?: "))
-
-print(r"U vas", kolicestvo_ugad, "-Popitok ugadat slovo")
-print(r"Vopros: Izvestnie Mirovie Brandy na", len(rand_words), "bukv?")
-
-while rand_words:
-
-    ugaday_slovo = input("Ugadayte bukvu ili slovo!: ")
-
-    if ugaday_slovo in rand_words:
-        print("Vy ugadali")
+import re
+words = ["adidas", "nike", "puma"]
+select_word = random.choice(words)
+attempts = int(input("Number of attempts?: "))
+quest = "Top Sport Brands"
+print("You have:", attempts, "try to guess")
+print("question:", quest, len(select_word), "letters")
+sample = " "
+count = 0
+while True:
+    if count == attempts:
+        print("Ty proigral")
         break
 
+    elements = input("enter letter or word:")
+    if len(elements) == 1:
+        if elements in select_word:
+            sample += elements
+            pattern = f"[^{sample.strip()}]"
+            print(re.sub(pattern, "*", select_word))
+            continue
+
+        else:
+            print("invalid laetter")
+            count += 1
+            continue
+
     else:
-        print("ne ugadali, sprobuyte we")
+        if elements == select_word:
+            print("you won")
+            break
+
+        else:
+            print("invalid word")
+            count += 1
