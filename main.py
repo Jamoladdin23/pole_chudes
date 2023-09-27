@@ -34,3 +34,4 @@ while True:
         else:
             print("invalid word")
             count += 1
+print("super!!")
